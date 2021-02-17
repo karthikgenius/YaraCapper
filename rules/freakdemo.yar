@@ -1,0 +1,5 @@
+rule freakdemo
+{
+	condition:
+		true
+}
