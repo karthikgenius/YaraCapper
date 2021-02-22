@@ -37,8 +37,7 @@ sleep 0.5s
 
 
 # Checking for wireless interfaces
-INTR=$(iwconfig 2> /dev/null | grep wlan | awk '$1=="wlan0"{print $1}')
-
+INTR=$(iw dev | awk '$1=="Interface"{print $2}')
 echo -e "${YELLOW}${STAR}${NRML} Searching for wireless interfaces.."
 sleep 0.5s
 if [[ -n $INTR ]];
