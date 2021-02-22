@@ -16,5 +16,5 @@ strings:
 	$string5 = "META-INF/MANIFEST.MF"
 	$string6 = "META-INF/MANIFEST.MFPK"
 condition:
-	6 of them
+	1 of them
 }

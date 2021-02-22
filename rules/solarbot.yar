@@ -7,5 +7,5 @@ rule solarbot{
     strings:
         $str1 = "v=%d.%d&u=%s&c=%s&s=%s&w=%d.%d.%d&b=%d"
     condition:
-        all of them
+        1 of them
 }

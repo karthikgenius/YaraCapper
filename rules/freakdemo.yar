@@ -1,5 +1,0 @@
-rule freakdemo
-{
-	condition:
-		true
-}
