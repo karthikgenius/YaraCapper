@@ -8,7 +8,7 @@ import os
 
 def checkRule(filem, rulem):
     rulesm = yara.compile(file=rulem)
-    matchm = rulesm.match(data=filem.read(), timeout=60)
+    matchm = rulesm.match(filem.name)
     return matchm
 
 def cultivate(pcappath, rulepath):
