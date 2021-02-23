@@ -5,10 +5,11 @@
 ***
 ## Description
 YARA Rule-based Automation System to Detect And Alert Network Attacks.
+ 
  ---
  ## Install and Launch
  ### Dependencies 
- - ** Packet Capture Engine **  
+ - **Packet Capture Engine**  
     	1. Aircrack-ng  
     	2. Tshark    
 
@@ -17,7 +18,7 @@ Use your package manager to install them
 apt-get install aircrack-ng tshark
 ```
 
-- ** Yara Validation Engine **  
+- **Yara Validation Engine**  
 		1. yara-python  
 
 Use pip package to install
@@ -25,7 +26,7 @@ Use pip package to install
 pip install yara-python
 ```
 
-- ** Mailing Alert Engine **  
+- **Mailing Alert Engine**  
 		1. smtplib  
 		2. email  
 
