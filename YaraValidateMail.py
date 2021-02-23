@@ -21,9 +21,9 @@ import time
 import argparse
 
 # Assigning sender and reciever mail addresses
-frommail = "pentesterproject@gmail.com"
-passwd = "oygsvxqkwfikkfhl"
-tomail = "sidhu.karthik1@gmail.com"
+frommail = "xyz@gmail.com" # change from mail here
+passwd = "" # add passwd here
+tomail = "" # add admin mail here
 
 #Passing pcap and rule files as function arguments
 # packetfiles = sys.argv[1]
