@@ -1,0 +1,31 @@
+#!/bin/bash
+
+
+# Have to run with sudo, if you are non-root user.
+
+# Packet Capture Engine Dependencies section
+source sources/colors.sh
+
+echo -e "${YELLOW}${STAR}${NRML} Started installation"
+
+echo "========================="
+DEPENDS=( wireless-tools aircrack-ng tshark )
+
+for pkg in ${DEPENDS[@]};
+do
+	echo -e "${YELLOW}${STAR}${NRML} Installing package: ${pkg}"
+	apt install -y ${pkg} &> /dev/null && echo -e "${GREEN}${GOOD}${NRML} Successfully installed ${pkg}" || echo -e "${RED}${ERR}${NRML} Error installing ${pkg}"
+	echo "========================="
+done
+
+
+# Yara Validataion and Mailing Alert Engine Dependencies section
+PY3PATH=$( which python3 )
+REQDEP=( yara-python colorama )
+
+for LINE in ${REQDEP[@]};
+do
+	echo -e "${YELLOW}${STAR}${NRML} Installing package: ${LINE}"
+	${PY3PATH} -m pip install ${LINE} &> /dev/null && echo -e "${GREEN}${GOOD}${NRML} Successfully installed" || echo -e "${RED}${ERR}${NRML} Error installing ${LINE}"
+	echo "========================="
+done

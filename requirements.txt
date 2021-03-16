@@ -1,0 +1,5 @@
+# yara-python for yara validations
+yara-python
+
+#generic
+colorama
