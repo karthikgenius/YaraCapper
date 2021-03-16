@@ -42,5 +42,6 @@ After all the dependencies are installed. Do the following
 ```bash
 git clone https://github.com/karthikgenius/YaraCapper.git
 cd YaraCapper
+chmod 744 *.sh  
 ./YaraCapper.sh
 ```
