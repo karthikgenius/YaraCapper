@@ -9,7 +9,7 @@ source sources/colors.sh
 echo -e "${YELLOW}${STAR}${NRML} Started installation"
 echo "========================="
 
-DEPENDS=( build-essential autoconf automake libtool pkg-config libnl-3-dev libnl-genl-3-dev libssl-dev ethtool shtool rfkill zlib1g-dev libpcap-dev libsqlite3-dev libpcre3-dev libhwloc-dev libcmocka-dev hostapd wpasupplicant tcpdump screen iw usbutils  wireless-tools aircrack-ng tshark python3-pip )
+DEPENDS=( build-essential autoconf automake libtool pkg-config libnl-3-dev libnl-genl-3-dev libssl-dev ethtool shtool rfkill zlib1g-dev libpcap-dev libsqlite3-dev libpcre3-dev libhwloc-dev libcmocka-dev hostapd wpasupplicant tcpdump screen iw usbutils  wireless-tools tshark python3-pip )
 
 for pkg in ${DEPENDS[@]};
 do
@@ -29,3 +29,21 @@ do
 	${PY3PATH} -m pip install ${LINE} &> /dev/null && echo -e "${GREEN}${GOOD}${NRML} Successfully installed" || echo -e "${RED}${ERR}${NRML} Error installing ${LINE}"
 	echo "========================="
 done
+
+
+installAircrack()
+{
+	echo "Changing to /tmp/ directory.."
+	cd /tmp/
+	wget https://download.aircrack-ng.org/aircrack-ng-1.6.tar.gz
+	tar -zxf aircrack-ng-1.6.tar.gz
+	cd aircrack-ng-1.6/
+	autoreconf -i
+	./configure
+	make
+	make check
+	make integration
+	make install
+}
+
+installAircrack
