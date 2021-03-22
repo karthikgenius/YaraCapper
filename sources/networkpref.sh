@@ -9,7 +9,6 @@ restartNetwork()
 {
   service NetworkManager restart 2> /dev/null || echo "Error in restarting network manager"
   sleep 1s
-  exit 1
 }
 
 validateInterface()
