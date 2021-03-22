@@ -35,7 +35,6 @@ echo "=========================="
 sleep 0.5s
 
 
-
 # Checking for wireless interfaces
 INTR=$(iw dev | awk '$1=="Interface"{print $2}')
 echo -e "${YELLOW}${STAR}${NRML} Searching for wireless interfaces.."
@@ -77,13 +76,25 @@ fi
 sleep 1s
 echo "=========================="
 
+# Configuration point
+echo -e "${YELLOW}${STAR}${NRML} Configuring Wireless adapter..."
+ip link set ${INTR} down || handleError
+ip link set ${INTR} name wlan0 || handleError
+INTR="wlan0"
+ip link set ${INTR} up || handleError
+restartNetwork
+echo -e "${GREEN}${GOOD}${NRML} Configuring Wireless adapter done"
+echo "=========================="
+
+# Monitor mode point
 monitorMode
 echo -e "${GREEN}${GOOD}${NRML} New monitor interface has been initialized: ${INTR}"
 
-echo "==============================================================="
-echo -e "${YELLOW}${STAR}${NRML} press ctrl + c to exit airodump screen once you have seen your target."
+echo "=========================="
+echo -e "${YELLOW}${STAR}${NRML} press ctrl + c to exit airodump screen once you have seen your target"
 sleep 10s
 
+# Dumping wifi networks
 echo -e "${CYANLIGHT}"
 dumpInfo
 echo -e "${BLUE}"
@@ -96,7 +107,7 @@ echo -e "${NRML}"
 echo -e "${YELLOW}${STAR}${NRML} Target set to ${BSSID}, listening on channel ${CH}.."
 sleep 2s
 
-mkdir preauth 2> /dev/null || echo -e "${RED}${ERR}${NRML} Unable to create directory,directory may existed "
+mkdir preauth 2> /dev/null || echo -e "${RED}${ERR}${NRML} Unable to create directory,directory may existed"
 mkdir postauth 2> /dev/null || echo -e "${RED}${ERR}${NRML} Unable to create directory, directory may existed"
 
 echo -e "${CYANLIGHT}"
@@ -105,7 +116,7 @@ echo
 echo -e "${YELLOW}${STAR}${NRML} Getting ready to capture packets...."
 sleep 2s
 
-
+# Managed mode point
 managedMode
 restartNetwork
 sleep 20s
@@ -113,6 +124,7 @@ sleep 20s
 tsharkCheck || echo -e "${RED}${ERR}${NRML} Error in handling packet capture, $(handleError)"
 sleep 1s
 
-startTshark && echo -e "${GREEN}${GOOD}${NRML} Successfully captured all packets, now they are ready to send to mail"
+startTshark && echo -e "${GREEN}${GOOD}${NRML} Successfully captured all packets"
+echo "=========================="
 
 dumpLog "End of Script"
