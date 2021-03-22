@@ -7,10 +7,8 @@
 source sources/colors.sh
 
 echo -e "${YELLOW}${STAR}${NRML} Started installation"
-
-# rfkill zlib1g-dev libpcap-dev libsqlite3-dev libpcre3-dev libhwloc-dev libcmocka-dev hostapd wpasupplicant tcpdump screen iw usbutils
-
 echo "========================="
+
 DEPENDS=( build-essential autoconf automake libtool pkg-config libnl-3-dev libnl-genl-3-dev libssl-dev ethtool shtool rfkill zlib1g-dev libpcap-dev libsqlite3-dev libpcre3-dev libhwloc-dev libcmocka-dev hostapd wpasupplicant tcpdump screen iw usbutils  wireless-tools aircrack-ng tshark python3-pip )
 
 for pkg in ${DEPENDS[@]};
