@@ -42,18 +42,18 @@ rulefiles = options.rulefiles
 def main():
     content = ""
 
-    print(f"{Fore.YELLOW}[*]{Style.RESET_ALL}Cultivating Packet files and Rule files")
-    print(f"{Fore.GREEN}[+]{Style.RESET_ALL}Scanning Started")
+    print(f"{Fore.YELLOW}[*]{Style.RESET_ALL} Cultivating Packet files and Rule files")
+    print(f"{Fore.GREEN}[+]{Style.RESET_ALL} Scanning Started")
     time.sleep(0.3)
 
     try:
         validator = yaradriver.cultivate(packetfiles, rulefiles)
     except:
-        print(f"{Fore.RED}[-]{Style.RESET_ALL}Error raised during cultivation of rules with packet files")
+        print(f"{Fore.RED}[-]{Style.RESET_ALL} Error raised during cultivation of rules with packet files")
         exit(1)
 
-    print(f"{Fore.GREEN}[+]{Style.RESET_ALL}Scanning Done Successfully")
-    print(f"{Fore.GREEN}[+]{Style.RESET_ALL}Cultivation Done")
+    print(f"{Fore.GREEN}[+]{Style.RESET_ALL} Scanning Done Successfully")
+    print(f"{Fore.GREEN}[+]{Style.RESET_ALL} Cultivation Done")
     time.sleep(0.3)
 
 
@@ -64,10 +64,10 @@ def main():
                 # content = content+ "File Name: "+ key.replace(packetfiles,'')+ " infected with: "+ rule.replace(rulefiles,'')+ "\n"
                 content = content + "File Name: " + key.replace(packetfiles, '') + " infected with: " + rule + "\n"
     else:
-        print(f"{Fore.GREEN}[+]{Style.RESET_ALL}Whola! No Matches!")
+        print(f"{Fore.GREEN}[+]{Style.RESET_ALL} Whola! No Matches!")
         exit()
 
-    print(f"{Fore.YELLOW}[*]{Style.RESET_ALL}YaraCapper is sending mail to " +tomail)
+    print(f"{Fore.YELLOW}[*]{Style.RESET_ALL} YaraCapper is sending mail to " +tomail)
     time.sleep(0.3)
 
     mailref = maildriver.YaraCapperMail()
@@ -76,15 +76,15 @@ def main():
     try:
         mailref.loadpcap(validator)
     except:
-        print(f"{Fore.RED}[-]{Style.RESET_ALL}Error occured while adding packet attachments")
+        print(f"{Fore.RED}[-]{Style.RESET_ALL} Error occured while adding packet attachments")
         exit(1)
 
     try:
         stat = mailref.launch()
         if stat:
-            print(f"{Fore.GREEN}[+]{Style.RESET_ALL}Mail sent successfully")
+            print(f"{Fore.GREEN}[+]{Style.RESET_ALL} Mail sent successfully")
     except:
-        print(f"{Fore.RED}[-]{Style.RESET_ALL}Error while connecting or logging in")
+        print(f"{Fore.RED}[-]{Style.RESET_ALL} Error while connecting or logging in")
         exit(1)
 
 
