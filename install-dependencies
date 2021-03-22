@@ -44,6 +44,7 @@ installAircrack()
 	make check
 	make integration
 	make install
+	ldconfig
 }
 
 installAircrack
