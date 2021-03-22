@@ -8,8 +8,8 @@ LOCALHOST="lo"
 restartNetwork()
 {
   service NetworkManager restart 2> /dev/null || echo "Error in restarting network manager"
-  echo
   sleep 1s
+  exit 1
 }
 
 validateInterface()
