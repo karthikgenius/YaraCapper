@@ -14,7 +14,7 @@ class YaraCapperMail:
         self.emailpasswd = passwd
 
     def set(self, tomail, message = " YaraCapper Demo Content!"):
-        YaraCapperMail.mailer['Subject']  = "About Project"
+        YaraCapperMail.mailer['Subject']  = "YaraCapper Alert!!!"
         YaraCapperMail.mailer['From'] = self.emailaddress
         YaraCapperMail.mailer['To'] = tomail
         YaraCapperMail.mailer.set_content(message)
