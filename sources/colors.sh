@@ -1,13 +1,13 @@
 # This color.sh file is developed as an shell library, Never run this file alone
 
-#example lines for status
+# example lines for status
 
 # ${RED}${ERR}${NRML}
 # ${GREEN}${GOOD}${NRML}
 # ${YELLOW}${STAR}${NRML}
 
 
-#color vars
+# color vars
 RED="\e[91m"
 GREEN="\e[32m"
 YELLOW="\e[33m"
@@ -27,10 +27,12 @@ ERR="[-]"
 STAR="[*]"
 
 
-#terminal size vars
+# terminal size vars
 COLS="$(tput cols)"
 LINES="$(tput lines)"
 
+# version
+VERSION="v2.0"
 
 # prints banner and author
 bannerPrinter()
@@ -50,7 +52,7 @@ bannerPrinter()
                                                                       ░███      ░███
                                                                       █████     █████
                                                                      ░░░░░     ░░░░░
-                                      ${UNBLINK}  ${NRML}                                    v1.0
+                                      ${UNBLINK}  ${NRML}                                    ${VERSION}
                                 ./~
                          (=#####{>======${CYANLIGHT}Made by T34m YaraCapper${RED}============-${NRML}
                                 \`\~
