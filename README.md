@@ -1,6 +1,6 @@
 # YaraCapper
 
-![YaraCapper](https://i.imgur.com/DwsXcoF.png)
+![YaraCapper](https://i.imgur.com/l4N9NWK.png)
 
 ***
 ## Description
