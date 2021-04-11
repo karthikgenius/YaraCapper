@@ -11,12 +11,22 @@ restartNetwork()
   sleep 1s
 }
 
-validateInterface()
+validateWirelessInterface()
 {
   if [[ ${INTR} = ${ETHER} || ${INTR} = ${LOCALHOST} ]];
   then
     return 1
-  elif [[ -e /sys/class/net/${INTR} ]];
+  elif [[ -n ${INTR} && -e /sys/class/net/${INTR} ]];
+  then
+    return 0
+  else
+    return 1
+  fi
+}
+
+validateWiredInterface()
+{
+  if [[ -n ${INTR} && -e /sys/class/net/${INTR} ]];
   then
     return 0
   else

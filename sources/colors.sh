@@ -1,13 +1,13 @@
 # This color.sh file is developed as an shell library, Never run this file alone
 
-#example lines for status
+# example lines for status
 
 # ${RED}${ERR}${NRML}
 # ${GREEN}${GOOD}${NRML}
 # ${YELLOW}${STAR}${NRML}
 
 
-#color vars
+# color vars
 RED="\e[91m"
 GREEN="\e[32m"
 YELLOW="\e[33m"
@@ -27,7 +27,7 @@ ERR="[-]"
 STAR="[*]"
 
 
-#terminal size vars
+# terminal size vars
 COLS="$(tput cols)"
 LINES="$(tput lines)"
 
@@ -38,24 +38,11 @@ bannerPrinter()
   if [ "${COLS}" -gt 89 ] && [ "${LINES}" -gt 16 ];
   then
     echo
-    printf "${BLINK} ${GREEN}
-     █████ █████                                 █████████
-    ░░███ ░░███                                 ███░░░░░███
-     ░░███ ███    ██████   ████████   ██████   ███     ░░░   ██████   ████████  ████████   ██████  ████████
-      ░░█████    ░░░░░███ ░░███░░███ ░░░░░███ ░███          ░░░░░███ ░░███░░███░░███░░███ ███░░███░░███░░███
-       ░░███      ███████  ░███ ░░░   ███████ ░███           ███████  ░███ ░███ ░███ ░███░███████  ░███ ░░░
-        ░███     ███░░███  ░███      ███░░███ ░░███     ███ ███░░███  ░███ ░███ ░███ ░███░███░░░   ░███
-        █████   ░░████████ █████    ░░████████ ░░█████████ ░░████████ ░███████  ░███████ ░░██████  █████
-       ░░░░░     ░░░░░░░░ ░░░░░      ░░░░░░░░   ░░░░░░░░░   ░░░░░░░░  ░███░░░   ░███░░░   ░░░░░░  ░░░░░
-                                                                      ░███      ░███
-                                                                      █████     █████
-                                                                     ░░░░░     ░░░░░
-                                      ${UNBLINK}  ${NRML}                                    v1.0
+    printf "${GREEN}${1}${UNBLINK}  ${NRML}                                    ${VERSION}
                                 ./~
                          (=#####{>======${CYANLIGHT}Made by T34m YaraCapper${RED}============-${NRML}
                                 \`\~
     ${NRML}"
-    sleep 3s
     echo
   else
     return 1

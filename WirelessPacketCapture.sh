@@ -10,21 +10,12 @@ source sources/shark.sh
 clear
 
 # Log logic start
-echo -e "${YELLOW}${STAR}${NRML} Checking for log files.."
-if [[ -e ./log/ymon.log ]];
-then
-  echo -e "${YELLOW}${STAR}${NRML} Log file existed.. Using the existed log file"
-  dumpLog "Script Started"
-else
-  echo -e "${RED}${ERR}${NRML} No log file existed, creating new one.."
-  touch ./log/ymon.log && echo -e "${GREEN}${GOOD}${NRML} Log file created successfully"
-fi
-echo "=========================="
-sleep 1s
+checkLog
 # Log logic end
 
+dumpLog "Log for wireless interface start"
 
-# Dependency checking
+# Dependency checking point
 echo "=========================="
 echo -e "${YELLOW}${STAR}${NRML} Checking for dependencies.. "
 sleep 0.5s
@@ -34,15 +25,14 @@ tsharkCheck || ( dumpLog "tShark not satisfied" && handleError )
 echo "=========================="
 sleep 0.5s
 
-
 # Checking for wireless interfaces
-INTR=$(iw dev | awk '$1=="Interface"{print $2}')
 echo -e "${YELLOW}${STAR}${NRML} Searching for wireless interfaces.."
+INTR=$(iw dev | awk '$1=="Interface"{print $2}')
 sleep 0.5s
+
 if [[ -n $INTR ]];
 then
-  echo -e "${GREEN}${GOOD}${NRML} Found default interface -- ${INTR}"
-  echo -e "${BLUE}"
+  echo -e "${GREEN}${GOOD}${NRML} Found default interface -- ${INTR}${BLUE}"
   read -p "Do you want to use another interface instead?(if yes, enter 'y' and then give valid device mount point) [no]: " RES
   echo -e "${NRML}"
   if [[ ${RES,,} = 'yes' || ${RES,,} = 'y' ]];
@@ -50,7 +40,7 @@ then
     echo -e "${BLUE}"
     read -p "Enter the new wireless mount point: " INTR
     echo -e "${NRML}"
-    validateInterface ${INTR} || interfaceError
+    validateWirelessInterface || interfaceError
     echo -e "${YELLOW}${STAR}${NRML} New interface given ${INTR}"
   else
     echo -e "${YELLOW}${STAR}${NRML} Continuing with ${INTR} interface.."
@@ -64,7 +54,7 @@ else
   then
     read -p "Enter the new wireless mount point: " INTR
     echo -e "${NRML}"
-    validateInterface ${INTR} || interfaceError
+    validateWirelessInterface || interfaceError
     echo -e "${YELLOW}${STAR}${NRML} New interface given ${INTR}"
   else
     echo -e "${RED}${ERR}${NRML} Unable to find wireless interface, exiting the script.."
@@ -76,12 +66,13 @@ fi
 sleep 1s
 echo "=========================="
 
+
 # Configuration point
 echo -e "${YELLOW}${STAR}${NRML} Configuring Wireless adapter..."
-ip link set ${INTR} down || handleError
-ip link set ${INTR} name wlan0 || handleError
+ip link set ${INTR} down &> /dev/null || handleError
+ip link set ${INTR} name wlan0 &> /dev/null || handleError
 INTR="wlan0"
-ip link set ${INTR} up || handleError
+ip link set ${INTR} up &> /dev/null || handleError
 restartNetwork
 echo -e "${GREEN}${GOOD}${NRML} Configuring Wireless adapter done"
 echo "=========================="
@@ -121,10 +112,10 @@ managedMode
 restartNetwork
 sleep 20s
 
-tsharkCheck || echo -e "${RED}${ERR}${NRML} Error in handling packet capture, $(handleError)"
+# tsharkCheck || echo -e "${RED}${ERR}${NRML} Error in handling packet capture, $(handleError)"
 sleep 1s
 
 startTshark && echo -e "${GREEN}${GOOD}${NRML} Successfully captured all packets"
 echo "=========================="
 
-dumpLog "End of Script"
+dumpLog "Log for wireless interface end"
