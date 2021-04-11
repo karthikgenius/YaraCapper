@@ -1,11 +1,11 @@
-# YaraCapper
+# YaraCapper v3.0
 
-![YaraCapper](https://i.imgur.com/DwsXcoF.png)
+![YaraCapper](https://i.imgur.com/y4x7dtw.png)
 
 ***
 ## Description
 YARA Rule-based Automation System to Detect And Alert Network Attacks.
- 
+
  ---
  ## Install Dependencies
  ### Clone  

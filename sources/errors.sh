@@ -17,7 +17,6 @@ handleError()
 
 }
 
-
 interfaceError()
 {
   echo -e "${RED}${ERR}${NRML}Interface not found"
