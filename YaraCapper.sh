@@ -4,6 +4,20 @@
 VERSION="v3.0"
 source sources/colors.sh
 
+trap resetApp INT
+
+resetApp()
+{
+  sleep 1s
+  echo
+  echo -e "${RED}${ERR}${NRML} Caught Keyboard Interrupt.."
+  echo -e "${YELLOW}${STAR}${NRML} Resetting YaraCapper to stable state.."
+  sleep 2s
+  airmon-ng stop wlan0mon &> /dev/null && service NetworkManager restart &> /dev/null
+  echo -e "${GREEN}${GOOD}${NRML} Done, Exiting YaraCapper with code 1"
+  exit 1
+}
+
 print_help()
 {
   echo "Usage: $0 <option>"
