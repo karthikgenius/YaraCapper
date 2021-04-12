@@ -43,8 +43,21 @@ pip install -r requirements.txt
 ***
 ## Launch  
 Make sure you are in Yaracapper directory
+ ```bash
+Usage: ./YaraCapper.sh <option>
+Options:
+-h    : help
+-e    : Ethernet Capture
+-w    : Wireless Capture
+-b    : Prints Banner
+```
+To run YaraCapper  for wired network:  
 ```bash
-./YaraCapper.sh
+./YaraCapper.sh -e
+```
+To run YaraCapper  for wireless(wifi) network:  
+```bash
+./YaraCapper.sh -w
 ```
 
 ***
