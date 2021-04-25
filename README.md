@@ -60,6 +60,6 @@ To run YaraCapper  for wireless(wifi) network:
 sudo ./YaraCapper.sh -w
 ```
 ## Credits:
-[Vineela V](https://github.com/VineelaVinni1999)
+[Vineela V](https://github.com/VineelaVinni1999),
 I can't thank you enough for being such a nice and cool developer. All I can say is I’m touched beyond words.  
 ***
