@@ -38,7 +38,7 @@ This script installs all the dependencies used by YaraCapper
 
 Use pip package of python3 to install:  
 ```bash
-pip install -r requirements.txt
+sudo pip install -r requirements.txt
 ```
 ***
 ## Launch  
@@ -53,11 +53,13 @@ Options:
 ```
 To run YaraCapper  for wired network:  
 ```bash
-./YaraCapper.sh -e
+sudo ./YaraCapper.sh -e
 ```
 To run YaraCapper  for wireless(wifi) network:  
 ```bash
-./YaraCapper.sh -w
+sudo ./YaraCapper.sh -w
 ```
-
+## Credits:
+[Vineela V](https://github.com/VineelaVinni1999)
+I can't thank you enough for being such a nice and cool developer. All I can say is I’m touched beyond words.  
 ***
