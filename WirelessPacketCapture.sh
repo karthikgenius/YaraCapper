@@ -82,7 +82,7 @@ monitorMode
 echo -e "${GREEN}${GOOD}${NRML} New monitor interface has been initialized: ${INTR}"
 
 echo "=========================="
-echo -e "${YELLOW}${STAR}${NRML} press ctrl + c to exit airodump screen once you have seen your target"
+echo -e "${YELLOW}${STAR}${NRML} press 'q' two times to exit airodump screen once you have seen your target"
 sleep 10s
 
 # Dumping wifi networks
