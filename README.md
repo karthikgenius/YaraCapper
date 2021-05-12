@@ -61,7 +61,7 @@ sudo ./YaraCapper.sh -w
 ```
 ## Deploying custom Distro
 Go to the drive link and download the latest version and deploy in VMWare
-![Download here](https://drive.google.com/drive/folders/1bU1E7wos2M5Vf3SIADHdojv252WVcnrw?usp=sharing)
+[Download here](https://drive.google.com/drive/folders/1bU1E7wos2M5Vf3SIADHdojv252WVcnrw?usp=sharing)
 
 ## Credits:
 [Vineela V](https://github.com/VineelaVinni1999),
