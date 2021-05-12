@@ -59,6 +59,10 @@ To run YaraCapper  for wireless(wifi) network:
 ```bash
 sudo ./YaraCapper.sh -w
 ```
+## Deploying custom Distro
+Go to the drive link and download the latest version and deploy in VMWare
+![Download here](https://drive.google.com/drive/folders/1bU1E7wos2M5Vf3SIADHdojv252WVcnrw?usp=sharing)
+
 ## Credits:
 [Vineela V](https://github.com/VineelaVinni1999),
 I can't thank you enough for being such a nice and cool developer. All I can say is I’m touched beyond words.  
